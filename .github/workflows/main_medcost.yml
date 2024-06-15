@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://medcost.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_49255b98acbb4bb591ff2b43fee350e1 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_a948f5c5ed034701b8dbc3e643d3fe10 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_327a566c62bf4f9cbbd261100b7103f2 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_dfc4049059f34cdbace27b6d93a8ea43 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: medcost.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_49255b98acbb4bb591ff2b43fee350e1 }}/med-charge-app:${{ github.sha }}
+        tags: medcost.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_327a566c62bf4f9cbbd261100b7103f2 }}/med-charge-app:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'medcost'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5efd2a5d11aa4e5a9db06772c38ce86f }}
-        images: 'medcost.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_49255b98acbb4bb591ff2b43fee350e1 }}/med-charge-app:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d841aa78b4f94ed0be380ff253bfd92a }}
+        images: 'medcost.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_327a566c62bf4f9cbbd261100b7103f2 }}/med-charge-app:${{ github.sha }}'
