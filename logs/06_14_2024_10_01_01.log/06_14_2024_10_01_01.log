@@ -1,0 +1,41 @@
+[2024-06-14 10:01:32,458] 40 root - INFO - Data ingestion started...
+[2024-06-14 10:01:35,647] 33 root - INFO - ../../artifacts\data.csv download! with following info: 
+Connection: close
+Content-Length: 55628
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: text/plain; charset=utf-8
+ETag: "f9e46465adc730e23ffe1addcf614ebc8ada5f0b8eeb9a3653b4a2c08558ee55"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: D0B6:2A87CD:6A7206:70DDCD:666C06EE
+Accept-Ranges: bytes
+Date: Fri, 14 Jun 2024 09:01:35 GMT
+Via: 1.1 varnish
+X-Served-By: cache-lin1730038-LIN
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1718355695.250566,VS0,VE113
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 833c3ed1f93c6ef7a8cb959d2fa5a81f545bc4d2
+Expires: Fri, 14 Jun 2024 09:06:35 GMT
+Source-Age: 0
+
+
+[2024-06-14 10:01:36,018] 46 root - INFO - Read the dataset as dataframe
+[2024-06-14 10:01:36,077] 52 root - INFO - Train-test split initiated
+[2024-06-14 10:01:36,235] 59 root - INFO - Data Ingestion completed...
+[2024-06-14 10:01:36,346] 74 root - INFO - Read train and test data completed
+[2024-06-14 10:01:36,347] 76 root - INFO - Obtaining preprocessing object
+[2024-06-14 10:01:36,347] 53 root - INFO - Categorical columns: ['sex', 'smoker', 'region']
+[2024-06-14 10:01:36,347] 54 root - INFO - Numerical columns: ['age', 'bmi', 'children']
+[2024-06-14 10:01:36,347] 83 root - INFO - Splitting data into features and target
+[2024-06-14 10:01:36,378] 91 root - INFO - Applying preprocessing object on training and testing dataframes.
+[2024-06-14 10:01:36,497] 103 root - INFO - Saved preprocessing object.
+[2024-06-14 10:01:36,584] 33 root - INFO - Split training and test input data
+[2024-06-14 10:03:03,222] 91 root - INFO - Best found model on both training and testing dataset
+[2024-06-14 10:03:03,341] 101 root - INFO - XGBRegressor is best performing model with r2_score of 0.8794611213514574

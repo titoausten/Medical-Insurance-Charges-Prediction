@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Cost Insurance Predictor</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://kit.fontawesome.com/57615040be.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="contact">
+        <a href="/" class="top-left-link">Home</a>
+        <div class="container cont">
+            <div class="form-main">
+                <h2>Enter Patient Details</h2>
+                <form id="predictionForm" action="{{ url_for('predict_datapoint')}}" method="post">
+                    <div class="form-group">
+                        <label class="form-label">Age</label>
+                        <input class="form-control" type="number" name="age" placeholder="Enter Age" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Sex</label>
+                        <select class="form-control" name="sex" placeholder="Enter sex" required>
+                            <option class="placeholder" selected disabled value="">Select Sex</option>
+                            <option value="male">
+                                Male
+                            </option>
+                            <option value="female">
+                                Female
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">BMI</label>
+                        <input class="form-control" type="number" name="bmi" placeholder="Enter BMI" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Children</label>
+                        <input class="form-control" type="number" name="children" placeholder="Enter Number of Children" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Smoker</label>
+                        <select class="form-control" name="smoker" placeholder="smoke?" required>
+                            <option class="placeholder" selected disabled value="">Select Option</option>
+                            <option value="yes">
+                                Yes
+                            </option>
+                            <option value="no">
+                                No
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Region</label>
+                        <select class="form-control" name="region" placeholder="Enter Region" required>
+                            <option class="placeholder" selected disabled value="">Select Region</option>
+                            <option value="southeast">
+                                South East
+                            </option>
+                            <option value="southwest">
+                                South West
+                            </option>
+                            <option value="northeast">
+                                North East
+                            </option>
+                            <option value="northwest">
+                                North West
+                            </option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn2">Submit</button>
+
+                </form>
+
+                <h2 id="output" style="display: none;">
+                   Charge = $<span id="resultValue"></span>
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>© 2024 <b><i>Powered by JacZ</i></b></p>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Validate all fields are filled
+            var form = document.getElementById('predictionForm');
+            var elements = form.elements;
+            var isValid = true;
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].type !== 'submit' && elements[i].type !== 'button' && elements[i].value === '') {
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Simulating a result
+            var result = Math.random() * 10000; // Generate a random charge value
+
+            // Display the result
+            var output = document.getElementById('output');
+            var resultValue = document.getElementById('resultValue');
+            resultValue.textContent = result.toFixed(2); // Format the result to two decimal places
+            output.style.display = 'block';
+
+            // Clear the result after 15 seconds
+            setTimeout(function() {
+                output.style.display = 'none';
+                resultValue.textContent = '';
+            }, 15000); // 15 seconds in milliseconds
+        });
+    </script>
+</body>
+</html>
