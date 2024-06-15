@@ -1,5 +1,5 @@
-## Global-AI-Hub-Machine-Learning-Bootcamp
-This repository contains the final project for the International Machine Learning Bootcamp by [Global AI Hub](https://globalaihub.com/?ref=titoausten).
+## Medical Cost Insurance Prediction
+This repository contains the Full Machine Learning Project Cycle of the final project for the International Machine Learning Bootcamp by [Global AI Hub](https://globalaihub.com/?ref=titoausten) by:
 
 ### Team Members:
 * [Tito Osadebey](https://github.com/titoausten)
